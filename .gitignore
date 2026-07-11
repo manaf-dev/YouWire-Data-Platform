@@ -1,0 +1,18 @@
+# Local / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Python (if any local scripts end up here accidentally)
+__pycache__/
+*.py[cod]
+.env
+.venv/
+
+# Secrets
+*.pem
+*credentials*
+*secrets*
