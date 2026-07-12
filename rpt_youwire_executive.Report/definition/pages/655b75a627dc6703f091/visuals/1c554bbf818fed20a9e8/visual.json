@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "1c554bbf818fed20a9e8",
+  "position": {
+    "x": 46.126613968173679,
+    "y": 73.606298885383538,
+    "z": 1001,
+    "height": 63.792125700665729,
+    "width": 162.91527486631557,
+    "tabOrder": 1001
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_payment"
+                    }
+                  },
+                  "Property": "status"
+                }
+              },
+              "queryRef": "gold_fact_payment.status",
+              "nativeQueryRef": "status",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6179abd13ffa6e8fa14f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_payment"
+              }
+            },
+            "Property": "status"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "15e3bdfdd0c3d7e70371",
+  "position": {
+    "x": 283.62960503834455,
+    "y": 74.587716203855322,
+    "z": 1002,
+    "height": 63.792125700665729,
+    "width": 162.91527486631557,
+    "tabOrder": 1002
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "gold_fact_payment"
+                    }
+                  },
+                  "Property": "customer_segment"
+                }
+              },
+              "queryRef": "gold_fact_payment.customer_segment",
+              "nativeQueryRef": "customer_segment",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "fbf30d4ef146f2315e7e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "gold_fact_payment"
+              }
+            },
+            "Property": "customer_segment"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

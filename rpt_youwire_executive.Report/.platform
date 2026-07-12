@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "rpt_youwire_executive"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "69b7ed5e-0995-a71b-4709-d5cb952f313e"
+  }
+}
