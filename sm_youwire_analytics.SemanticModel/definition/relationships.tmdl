@@ -1,0 +1,16 @@
+relationship f3777b43-e6fd-cbcc-ffbc-11efcf8a30fe
+	fromColumn: gold_fact_payment.customer_key
+	toColumn: gold_dim_customer.customer_key
+
+relationship ed4fea75-bfa8-5c6a-dfaf-30d87a965640
+	fromColumn: gold_fact_payment.corridor_key
+	toColumn: gold_dim_corridor.corridor_key
+
+relationship 614bb71b-32e3-fd69-e5e4-d4305eea1849
+	fromColumn: gold_fact_payment.date_key
+	toColumn: gold_dim_date.date_key
+
+relationship 4009b734-e76f-2f84-53fe-f0aa22166ea8
+	fromColumn: gold_fact_payment.source_currency_key
+	toColumn: gold_dim_currency.currency_key
+

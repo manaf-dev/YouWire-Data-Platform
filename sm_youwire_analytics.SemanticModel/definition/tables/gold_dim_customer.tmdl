@@ -1,0 +1,123 @@
+table gold_dim_customer
+	lineageTag: ca90ff97-40eb-4b4a-bbba-6af43330c18f
+	sourceLineageTag: [dbo].[gold_dim_customer]
+
+	column customer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8bdf65b2-e058-45c7-95ab-e84292e943ba
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: c88dd917-c135-48c7-877c-3bc761118cdb
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column company_name
+		dataType: string
+		lineageTag: 70569cd2-ba32-46fb-a9ff-62003ebdb967
+		sourceLineageTag: company_name
+		summarizeBy: none
+		sourceColumn: company_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_code
+		dataType: string
+		lineageTag: a395582b-e780-4aef-b72b-8dd4a4af4d11
+		sourceLineageTag: country_code
+		summarizeBy: none
+		sourceColumn: country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column country_name
+		dataType: string
+		lineageTag: 2c5cd27a-8fbb-4e0d-81e2-31d27880e8ab
+		sourceLineageTag: country_name
+		summarizeBy: none
+		sourceColumn: country_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: a43be1e2-035c-4b89-8e6c-74b68d201902
+		sourceLineageTag: segment
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column industry
+		dataType: string
+		lineageTag: 4c8dc7b2-a5b6-4342-9b81-6396d6cf0e3d
+		sourceLineageTag: industry
+		summarizeBy: none
+		sourceColumn: industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column kyc_status
+		dataType: string
+		lineageTag: 331007cd-912d-4f61-95ae-3cf167859233
+		sourceLineageTag: kyc_status
+		summarizeBy: none
+		sourceColumn: kyc_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column primary_currency
+		dataType: string
+		lineageTag: 99befbe4-cfd7-4252-9a37-887239f98b37
+		sourceLineageTag: primary_currency
+		summarizeBy: none
+		sourceColumn: primary_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 10caeb78-ca56-4ed7-b3c6-55a49acca345
+		sourceLineageTag: is_active
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column onboarded_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e9819f33-8cff-4bea-8ba8-bc719214903c
+		sourceLineageTag: onboarded_date
+		summarizeBy: none
+		sourceColumn: onboarded_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column annual_payment_volume_usd
+		dataType: double
+		lineageTag: a101db87-7600-46a2-9d91-31a17edb3a65
+		sourceLineageTag: annual_payment_volume_usd
+		summarizeBy: none
+		sourceColumn: annual_payment_volume_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition gold_dim_customer = entity
+		mode: directLake
+		source
+			entityName: gold_dim_customer
+			expressionSource: 'DirectLake - lh_youwire'
+

@@ -1,0 +1,47 @@
+table gold_dim_corridor
+	lineageTag: 8b89a1bd-29cf-4647-bf68-5787b63ba224
+	sourceLineageTag: [dbo].[gold_dim_corridor]
+
+	column corridor_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f3673652-0790-4ec3-aa71-f1e09759227f
+		sourceLineageTag: corridor_key
+		summarizeBy: none
+		sourceColumn: corridor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_country_code
+		dataType: string
+		lineageTag: 1e102097-2cc7-417a-b036-5a20a685d30a
+		sourceLineageTag: source_country_code
+		summarizeBy: none
+		sourceColumn: source_country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_country_code
+		dataType: string
+		lineageTag: 1538a3c8-ad45-402e-89cd-e2f84ccc3018
+		sourceLineageTag: target_country_code
+		summarizeBy: none
+		sourceColumn: target_country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column corridor_name
+		dataType: string
+		lineageTag: 3576aa1a-5d56-409e-a9d0-5534fd8bc394
+		sourceLineageTag: corridor_name
+		summarizeBy: none
+		sourceColumn: corridor_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_corridor = entity
+		mode: directLake
+		source
+			entityName: gold_dim_corridor
+			expressionSource: 'DirectLake - lh_youwire'
+

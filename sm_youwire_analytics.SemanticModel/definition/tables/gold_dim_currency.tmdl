@@ -1,0 +1,29 @@
+table gold_dim_currency
+	lineageTag: 094a0ab0-adf5-48e9-8ed9-063de4350994
+	sourceLineageTag: [dbo].[gold_dim_currency]
+
+	column currency_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 56e16b7b-01f7-4242-b456-450c0cfa177d
+		sourceLineageTag: currency_key
+		summarizeBy: none
+		sourceColumn: currency_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency_code
+		dataType: string
+		lineageTag: b1b740cb-8e2e-424a-b27d-17fc14a28058
+		sourceLineageTag: currency_code
+		summarizeBy: none
+		sourceColumn: currency_code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_dim_currency = entity
+		mode: directLake
+		source
+			entityName: gold_dim_currency
+			expressionSource: 'DirectLake - lh_youwire'
+

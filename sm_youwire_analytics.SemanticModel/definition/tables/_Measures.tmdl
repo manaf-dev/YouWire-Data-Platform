@@ -1,0 +1,71 @@
+table _Measures
+	lineageTag: 12b70f51-41a3-4ca7-a850-e21b8ef3b10c
+
+	measure 'Total Payment Volume USD' = SUM(gold_fact_payment[amount_usd])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 72e0d0cc-9301-4080-89f5-f3dedffe1a18
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Total Fees USD' = SUM(gold_fact_payment[fee_usd])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 20626691-86ff-4fb7-8a7c-6382456baca1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Payment Count' = COUNTROWS(gold_fact_payment)
+		formatString: 0
+		lineageTag: 1c2af63a-6d15-43bf-8d4a-fbe44391629b
+
+	measure 'Success Rate' = ```
+			
+			    DIVIDE(
+			        SUM(gold_fact_payment[is_successful]),
+			        COUNTROWS(gold_fact_payment)
+			    )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f8f39344-e412-408d-b4fe-501b41ef14c9
+
+	measure 'Avg Settlement Hours' = ```
+			
+			    AVERAGE(gold_fact_payment[settlement_hours])
+			```
+		formatString: 0.0
+		lineageTag: 6c524956-1cb4-404f-ad36-fd2ccbde6a5c
+
+	measure 'Failed Payment Count' = SUM(gold_fact_payment[is_failed])
+		formatString: 0
+		lineageTag: d07944b1-82b3-4ce5-bb20-3d4e87f041cd
+
+	measure 'Failure Rate' = ```
+			
+			    DIVIDE(
+			        SUM(gold_fact_payment[is_failed]),
+			        COUNTROWS(gold_fact_payment)
+			    )
+			```
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 0cf8de73-cd45-4a76-bfaa-97fc6adf90c8
+
+	measure 'Completed Payment Count' = SUM(gold_fact_payment[is_successful])
+		formatString: 0
+		lineageTag: 6525912a-92df-4e4a-8b5e-e4c54d770a88
+
+	column Column
+		formatString: 0
+		lineageTag: cb33d292-d7f0-42fd-964a-0ee0943dedbe
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = c39146e56a9d401289a3452df831b060
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

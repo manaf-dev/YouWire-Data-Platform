@@ -1,0 +1,276 @@
+table gold_fact_payment
+	lineageTag: 47762536-ee86-44db-85ec-e932dd72b18c
+	sourceLineageTag: [dbo].[gold_fact_payment]
+
+	column payment_id
+		dataType: string
+		lineageTag: 295688cd-678b-49b4-a991-ec1b9be5adaa
+		sourceLineageTag: payment_id
+		summarizeBy: none
+		sourceColumn: payment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d6d1bea4-d29a-4030-a647-1828221fccb4
+		sourceLineageTag: customer_key
+		summarizeBy: none
+		sourceColumn: customer_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column corridor_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ccd9f54c-7470-4948-8ecd-f9729d15c044
+		sourceLineageTag: corridor_key
+		summarizeBy: none
+		sourceColumn: corridor_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_currency_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ac7a8020-95ce-4324-ab9d-c5c07843dcb7
+		sourceLineageTag: source_currency_key
+		summarizeBy: none
+		sourceColumn: source_currency_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_currency_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c36ac205-62af-4466-af67-017fbc3cbabe
+		sourceLineageTag: target_currency_key
+		summarizeBy: sum
+		sourceColumn: target_currency_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8095abed-b1a4-4f29-bd34-6f79fa126e2d
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 94867e76-4573-4bf3-aac3-a84789326ffb
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_segment
+		dataType: string
+		lineageTag: 219565b7-40cf-4d6e-b3f6-cb0c85ad00c2
+		sourceLineageTag: customer_segment
+		summarizeBy: none
+		sourceColumn: customer_segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_country_code
+		dataType: string
+		lineageTag: 79277d9a-579d-4d44-ad2c-5cd722aef782
+		sourceLineageTag: source_country_code
+		summarizeBy: none
+		sourceColumn: source_country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_country_code
+		dataType: string
+		lineageTag: c6c59d76-797e-49f3-bc2d-d41f0cfa85e9
+		sourceLineageTag: target_country_code
+		summarizeBy: none
+		sourceColumn: target_country_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_currency
+		dataType: string
+		lineageTag: 8161794f-abe5-45d1-971e-eeaa1dcbb284
+		sourceLineageTag: source_currency
+		summarizeBy: none
+		sourceColumn: source_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column target_currency
+		dataType: string
+		lineageTag: 262efe53-81c9-4b3b-89f3-4942f9f2e35e
+		sourceLineageTag: target_currency
+		summarizeBy: none
+		sourceColumn: target_currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: 114a41f9-0aa6-4bb9-b81c-3d47d999e5ce
+		sourceLineageTag: payment_method
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column corridor_type
+		dataType: string
+		lineageTag: d80d9bfe-54e1-418f-9003-52e3a9e46f67
+		sourceLineageTag: corridor_type
+		summarizeBy: none
+		sourceColumn: corridor_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 21f14810-3741-413e-a22b-068ebeea834a
+		sourceLineageTag: status
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount_source
+		dataType: double
+		lineageTag: b615439e-5ba6-4ffc-974f-24919c21eeae
+		sourceLineageTag: amount_source
+		summarizeBy: sum
+		sourceColumn: amount_source
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column amount_usd
+		dataType: double
+		lineageTag: 73acf1fd-4ce6-4e12-8912-c72d19ddf21c
+		sourceLineageTag: amount_usd
+		summarizeBy: sum
+		sourceColumn: amount_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fx_rate_to_usd
+		dataType: double
+		lineageTag: 5b15c02d-c36b-45b9-89e1-b2f78df43545
+		sourceLineageTag: fx_rate_to_usd
+		summarizeBy: sum
+		sourceColumn: fx_rate_to_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column daily_rate_to_usd
+		dataType: double
+		lineageTag: ac33ced2-8ad5-43a4-bde1-e6d3fd2fe1e3
+		sourceLineageTag: daily_rate_to_usd
+		summarizeBy: sum
+		sourceColumn: daily_rate_to_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fee_usd
+		dataType: double
+		lineageTag: a96d64ba-c7ab-4a21-beb7-b0fcc75567f6
+		sourceLineageTag: fee_usd
+		summarizeBy: sum
+		sourceColumn: fee_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column initiated_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e938f125-d4b6-42ff-afcd-f4af64d03a09
+		sourceLineageTag: initiated_at
+		summarizeBy: none
+		sourceColumn: initiated_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column completed_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eeb1f922-83b6-4d66-802c-ff2ded59d961
+		sourceLineageTag: completed_at
+		summarizeBy: none
+		sourceColumn: completed_at
+
+		annotation SummarizationSetBy = Automatic
+
+	column initiated_date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 92a9a38e-bc35-42e4-8771-55a4d48ab686
+		sourceLineageTag: initiated_date
+		summarizeBy: none
+		sourceColumn: initiated_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column settlement_hours
+		dataType: double
+		lineageTag: 0a89438e-8719-472e-bfd5-a93b6af1a179
+		sourceLineageTag: settlement_hours
+		summarizeBy: sum
+		sourceColumn: settlement_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_successful
+		dataType: int64
+		formatString: 0
+		lineageTag: 18c40c53-b7ac-4734-b051-92410aa4d599
+		sourceLineageTag: is_successful
+		summarizeBy: sum
+		sourceColumn: is_successful
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_failed
+		dataType: int64
+		formatString: 0
+		lineageTag: 09e4b916-3874-410a-b72f-1ecb04130ac0
+		sourceLineageTag: is_failed
+		summarizeBy: sum
+		sourceColumn: is_failed
+
+		annotation SummarizationSetBy = Automatic
+
+	column _loaded_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3d8b58c7-72ae-44f8-b378-019927dcd859
+		sourceLineageTag: _loaded_at
+		summarizeBy: none
+		sourceColumn: _loaded_at
+
+		annotation SummarizationSetBy = Automatic
+
+	partition gold_fact_payment = entity
+		mode: directLake
+		source
+			entityName: gold_fact_payment
+			expressionSource: 'DirectLake - lh_youwire'
+

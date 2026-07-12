@@ -1,0 +1,11 @@
+expression 'DirectLake - lh_youwire' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/2f3119d9-8f3c-459b-8816-0fba4a90e313/2f587482-62ae-4bb4-9574-9f26136cfc39", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: d955ddd5-0e26-4b29-9244-eb7135fa4718
+
+	annotation PBI_IncludeFutureArtifacts = False
+
+	annotation PBI_RemovedChildren = [{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_payments]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_customers]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_fx_rates]"}},"objectType":"Table"},{"remoteItemId":{"analysisServicesObject":{"sourceName":null,"sourceLineageTag":"[dbo].[silver_fee_schedule]"}},"objectType":"Table"}]
+
