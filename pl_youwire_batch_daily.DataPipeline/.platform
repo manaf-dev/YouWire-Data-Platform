@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "pl_youwire_batch_daily"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "af99e95e-e57e-9336-45a7-d77e17c751cb"
+  }
+}
