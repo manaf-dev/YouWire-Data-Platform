@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CHECKS = [
     "README.md",
     "lh_youwire.Lakehouse",
-    "nb_bronze_to_silver.py.Notebook",
+    "nb_bronze_to_silver.Notebook",
     "nb_silver_to_gold.Notebook",
     "pl_youwire_batch_daily.DataPipeline",
     "rpt_youwire_executive.Report",
@@ -81,4 +81,7 @@ def print_results(
 
 
 if __name__ == "__main__":
-    print_results()
+    import sys
+
+    summary = print_results()
+    sys.exit(0 if summary["overall_status"] == "PASS" else 1)
