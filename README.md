@@ -15,7 +15,6 @@ Every Fabric item is stored here as code through **Fabric Git integration**, so 
 
 ![YouWire Data Platform architecture](docs/architecture/youwire-architecture.svg)
 
-<sub>Editable source: [`docs/architecture/youwire-architecture.drawio`](docs/architecture/youwire-architecture.drawio) (open in [draw.io](https://app.diagrams.net)).</sub>
 
 | Stage | What happens |
 |---|---|
