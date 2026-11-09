@@ -23,9 +23,8 @@
 # CELL ********************
 
 from pyspark.sql import functions as F
-from pyspark.sql.types import BooleanType, DateType, DoubleType, IntegerType, TimestampType
+from pyspark.sql.types import BooleanType, DoubleType
 
-LAKEHOUSE = "lh_youwire"
 BRONZE = "Files/bronze"
 SILVER_TABLE_PREFIX = "silver_"
 

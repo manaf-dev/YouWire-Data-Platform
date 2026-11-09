@@ -23,7 +23,7 @@
 # CELL ********************
 
 from pyspark.sql import functions as F
-from pyspark.sql.types import DateType, IntegerType
+from pyspark.sql.types import IntegerType
 from pyspark.sql.window import Window
 
 GOLD_PREFIX = "gold_"
@@ -44,7 +44,7 @@ fx_rates = spark.table("silver_fx_rates")
 
 dim_customer = (
     customers.select(
-        F.monotonically_increasing_id().alias("customer_key"),
+        F.row_number().over(Window.orderBy("customer_id")).alias("customer_key"),
         "customer_id",
         "company_name",
         "country_code",
@@ -89,31 +89,6 @@ dim_corridor = corridor_pairs.select(
 
 dim_corridor.write.format("delta").mode("overwrite").saveAsTable(f"{GOLD_PREFIX}dim_corridor")
 print(f"gold_dim_corridor: {dim_corridor.count()} rows")
-
-# METADATA ********************
-
-# META {
-# META   "language": "python",
-# META   "language_group": "synapse_pyspark"
-# META }
-
-# CELL ********************
-
-currency_codes = (
-    payments.select(F.col("source_currency").alias("currency_code"))
-    .union(payments.select(F.col("target_currency").alias("currency_code")))
-    .union(customers.select(F.col("primary_currency").alias("currency_code")))
-    .distinct()
-    .filter(F.col("currency_code").isNotNull())
-)
-
-dim_currency = currency_codes.select(
-    F.row_number().over(Window.orderBy("currency_code")).alias("currency_key"),
-    "currency_code",
-)
-
-dim_currency.write.format("delta").mode("overwrite").saveAsTable(f"{GOLD_PREFIX}dim_currency")
-print(f"gold_dim_currency: {dim_currency.count()} rows")
 
 # METADATA ********************
 
@@ -300,6 +275,7 @@ print(f"Missing daily FX rate: {missing_fx}")
 assert fact_count == payment_count, "Fact row count does not match silver payments"
 assert missing_corridor == 0, "Found payments without corridor_key"
 assert missing_date_key == 0, "Found payments without date_key"
+assert missing_fx == 0, "Found payments without a daily FX rate for the source currency"
 
 print("Gold load complete.")
 
