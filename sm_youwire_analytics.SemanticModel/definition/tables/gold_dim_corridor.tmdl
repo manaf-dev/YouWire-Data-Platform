@@ -4,6 +4,7 @@ table gold_dim_corridor
 
 	column corridor_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: f3673652-0790-4ec3-aa71-f1e09759227f
 		sourceLineageTag: corridor_key

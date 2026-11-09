@@ -4,6 +4,7 @@ table gold_dim_currency
 
 	column currency_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 56e16b7b-01f7-4242-b456-450c0cfa177d
 		sourceLineageTag: currency_key

@@ -1,9 +1,11 @@
 table gold_dim_date
 	lineageTag: 950509ca-2ada-485b-9ee4-921b78c96945
 	sourceLineageTag: [dbo].[gold_dim_date]
+	dataCategory: Time
 
 	column full_date
 		dataType: dateTime
+		isKey
 		formatString: General Date
 		lineageTag: 0e358bed-3251-44f7-9e9d-24f6585bf4d8
 		sourceLineageTag: full_date
@@ -14,6 +16,7 @@ table gold_dim_date
 
 	column date_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 9b5759f3-8e24-483d-822e-50e1f8accee4
 		sourceLineageTag: date_key

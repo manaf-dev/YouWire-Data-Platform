@@ -1,15 +1,24 @@
 table _Measures
 	lineageTag: 12b70f51-41a3-4ca7-a850-e21b8ef3b10c
 
-	measure 'Total Payment Volume USD' = SUM(gold_fact_payment[amount_usd])
+	measure 'Total Payment Volume USD' = CALCULATE(SUM(gold_fact_payment[amount_usd]), gold_fact_payment[is_successful] = 1)
+		description: Value of completed payments (USD). Failed and pending payments are excluded.
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 72e0d0cc-9301-4080-89f5-f3dedffe1a18
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Total Fees USD' = SUM(gold_fact_payment[fee_usd])
+	measure 'Total Fees USD' = CALCULATE(SUM(gold_fact_payment[fee_usd]), gold_fact_payment[is_successful] = 1)
+		description: Fee revenue earned on completed payments (USD).
 		formatString: \$#,0;(\$#,0);\$#,0
 		lineageTag: 20626691-86ff-4fb7-8a7c-6382456baca1
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Attempted Payment Volume USD' = SUM(gold_fact_payment[amount_usd])
+		description: Value of all initiated payments regardless of outcome (USD).
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 5b0e6a1c-8f2d-4b7e-9a31-6d4c2e8f1a70
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
@@ -52,7 +61,18 @@ table _Measures
 		formatString: 0
 		lineageTag: 6525912a-92df-4e4a-8b5e-e4c54d770a88
 
+	measure 'Payment Volume USD by Target Currency' = 
+			CALCULATE(
+			    [Total Payment Volume USD],
+			    USERELATIONSHIP(gold_fact_payment[target_currency_key], gold_dim_currency[currency_key])
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 3c7f1798-1e85-4cb1-b4f6-55233313d0d0
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
 	column Column
+		isHidden
 		formatString: 0
 		lineageTag: cb33d292-d7f0-42fd-964a-0ee0943dedbe
 		summarizeBy: sum

@@ -4,6 +4,7 @@ table gold_dim_customer
 
 	column customer_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 8bdf65b2-e058-45c7-95ab-e84292e943ba
 		sourceLineageTag: customer_key

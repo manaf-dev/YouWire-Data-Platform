@@ -13,6 +13,7 @@ table gold_fact_payment
 
 	column customer_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: d6d1bea4-d29a-4030-a647-1828221fccb4
 		sourceLineageTag: customer_key
@@ -23,6 +24,7 @@ table gold_fact_payment
 
 	column corridor_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: ccd9f54c-7470-4948-8ecd-f9729d15c044
 		sourceLineageTag: corridor_key
@@ -33,6 +35,7 @@ table gold_fact_payment
 
 	column source_currency_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: ac7a8020-95ce-4324-ab9d-c5c07843dcb7
 		sourceLineageTag: source_currency_key
@@ -43,6 +46,7 @@ table gold_fact_payment
 
 	column target_currency_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: c36ac205-62af-4466-af67-017fbc3cbabe
 		sourceLineageTag: target_currency_key
@@ -53,6 +57,7 @@ table gold_fact_payment
 
 	column date_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 8095abed-b1a4-4f29-bd34-6f79fa126e2d
 		sourceLineageTag: date_key
