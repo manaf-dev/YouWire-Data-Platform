@@ -9,8 +9,8 @@
         },
         "policy": {
           "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
+          "retry": 1,
+          "retryIntervalInSeconds": 300,
           "secureInput": false,
           "secureOutput": false
         },
@@ -25,8 +25,8 @@
         },
         "policy": {
           "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
+          "retry": 1,
+          "retryIntervalInSeconds": 300,
           "secureInput": false,
           "secureOutput": false
         },
@@ -44,7 +44,7 @@
         "type": "Office365Email",
         "typeProperties": {
           "body": "<p>The pipeline failed in @{pipeline().DataFactory} Workspace at @{utcNow()}.</p>\n<p>You should check it out ASAP.</p>",
-          "to": "manaf.mohammed@amalitech.com",
+          "to": "@{pipeline().parameters.alert_email}",
           "subject": "Pipeline Failure - CRITICAL"
         },
         "externalReferences": {
@@ -60,23 +60,19 @@
         "name": "Pipeline Failure notification",
         "dependsOn": [
           {
-            "activity": "silver",
-            "dependencyConditions": [
-              "Failed"
-            ]
-          },
-          {
             "activity": "gold",
             "dependencyConditions": [
-              "Failed"
+              "Failed",
+              "Skipped"
             ]
           }
         ]
       }
     ],
     "parameters": {
-      "run_date": {
-        "type": "string"
+      "alert_email": {
+        "type": "string",
+        "defaultValue": "alerts@youwire.example"
       }
     }
   }
